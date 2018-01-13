@@ -12,11 +12,6 @@ public class Message {
     private String text = "";
     private long timeStamp = 0;
 
-
-    public Message() {
-
-    }
-
     public Message(int senderId, int receiverId, String text, long timeStamp) {
         this.senderId = senderId;
         this.receiverId = receiverId;
@@ -27,13 +22,12 @@ public class Message {
     // parses Message from string
     // String is simply comma-separated values TODO: COMMA-SEPARATION DOESN'T ALLOW MESSAGES TO CONTAIN COMMAS
     public static Message parse(String fromString) {
-        Message parsed = new Message();
         String[] values = fromString.split(",");
-        parsed.senderId = Integer.parseInt(values[0]);
-        parsed.receiverId = Integer.parseInt(values[1]);
-        parsed.text = values[2];
-        parsed.timeStamp = Long.parseLong(values[3]);
-        return parsed;
+        int senderId = Integer.parseInt(values[0]);
+        int receiverId = Integer.parseInt(values[1]);
+        String text = values[2];
+        long timeStamp = Long.parseLong(values[3]);
+        return new Message(senderId, receiverId, text, timeStamp);
     }
 
     public int getSenderId() {
