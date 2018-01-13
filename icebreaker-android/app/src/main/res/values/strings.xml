@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Icebreaker-Android</string>
+    <string name ="next_text">Next</string>
 </resources>

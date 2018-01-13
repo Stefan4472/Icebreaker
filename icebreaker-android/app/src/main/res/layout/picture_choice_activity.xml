@@ -11,25 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="Welcome to Icebreaker!"
+        android:text="Let's get a profile picture!"
         android:layout_marginTop="40dp"
         android:textSize="40dp" />
 
-    <EditText
-        android:id="@+id/user_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="40dp"
-        android:hint="Enter name" />
-
-    <Button
-        android:id="@+id/next_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/next_text"
-        android:onClick="onNameSubmitted"/>
 
 
 </LinearLayout>
