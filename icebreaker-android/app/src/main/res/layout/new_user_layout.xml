@@ -16,12 +16,14 @@
         android:textSize="40dp" />
 
     <EditText
-        android:id="@+id/user_name"
+        android:id="@+id/user_name_entry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:layout_marginTop="40dp"
-        android:hint="Enter name" />
+        android:hint="Enter name"
+        android:inputType="text|textCapWords|textPersonName"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"/>
 
     <Button
         android:id="@+id/next_button"
@@ -31,5 +33,12 @@
         android:text="@string/next_text"
         android:onClick="onNameSubmitted"/>
 
-
+    <TextView
+        android:id="@+id/error_message_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Enter Your First Name!"
+        android:textColor="#FF0000"
+        android:visibility="invisible"/>
 </LinearLayout>
