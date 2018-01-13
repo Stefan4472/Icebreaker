@@ -1,8 +1,12 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="android:Theme.Material.Light">
+        <!--   app bar color -->
+        <item name="android:colorPrimary">@color/primary</item>
+        <!--   status bar and contextual app bars -->
+        <!--item name="android:colorPrimaryDark">@color/primary_dark</item>-->
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="android:colorAccent">@color/accent</item>
     </style>
-
 </resources>
