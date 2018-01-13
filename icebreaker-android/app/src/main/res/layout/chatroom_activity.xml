@@ -6,10 +6,16 @@
     android:layout_height="match_parent"
     tools:context="com.andycjstefan.icebreaker_android.ChatRoomActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rooms_recyclerview"
+    <TextView
+        android:id="@+id/chatroom_name"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:text = "Chatroom Name"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/chatroom_profiles_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     </android.support.v7.widget.RecyclerView>
 </android.support.constraint.ConstraintLayout>

@@ -19,15 +19,26 @@ import java.util.List;
 
 public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.ChatRoomViewHolder> {
 
+    // listener interface for receiving selections
+    public interface OnChatRoomClickListener {
+        void onChatRoomClicked(ChatRoom selectedChatRoom);
+    }
+
     // chat rooms in the display
     private List<ChatRoom> rooms;
     private Context context;
     private int userId;
+    // listener registered with this instance
+    private OnChatRoomClickListener mListener;
 
     public ChatRoomAdapter(Context context, List<ChatRoom> rooms, int userId) { // todo: give the JSON objects?
         this.context = context;
         this.rooms = rooms;
         this.userId = userId;
+    }
+
+    public void setListener(OnChatRoomClickListener mListener) {
+        this.mListener = mListener;
     }
 
     @Override
@@ -37,7 +48,7 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.ChatRo
     }
 
     @Override
-    public void onBindViewHolder(ChatRoomViewHolder holder, int position) {
+    public void onBindViewHolder(ChatRoomViewHolder holder, final int position) {
         ChatRoom room = rooms.get(position);
 
         // bind data from the specified message to the holder layout
@@ -45,6 +56,18 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.ChatRo
         holder.setDescription(room.getDescription());
         holder.setPassword(room.getPassword());
         holder.setNumUsers(room.getUsers().size());
+
+        // create new onClickListener to send events to the registered OnChatRoomClickListener
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onChatRoomClicked(rooms.get(position));
+                }
+            }
+        };
+        // TODO: ATTACH TO WHOLE VIEW ELEMENT
+        holder.nameText.setOnClickListener(listener);
     }
 
     @Override
