@@ -15,13 +15,11 @@ public class DashboardActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_layout);
-
-
     }
 
     // responds to user clicking to see rooms they are in
     public void onViewRoomsClicked(View view) {
-        startActivity(new Intent(this, ChatroomActivity.class));
+        startActivity(new Intent(this, AllChatRoomsActivity.class));
     }
 
     // responds to user clicking to see chats they are in
