@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +73,7 @@ public class ChatLogAdapter extends RecyclerView.Adapter<ChatLogAdapter.ChatMess
             this.sentByUser = sentByUser;
             if (sentByUser) { // set cyan background and right-justify TODO: LEFT/RIGHT JUSTIFY
                 textView.setBackgroundColor(Color.CYAN);
+                textView.setGravity(Gravity.RIGHT);
             } else { // set white background and left-justify
                 textView.setBackgroundColor(Color.WHITE);
             }

@@ -15,7 +15,7 @@ public class NewUserActivity extends Activity {
 
     // called when user clicks button to submit Name
     public void onNameSubmitted(View view) {
-        // TODO: note: currently serving to start ChatActivity
-        startActivity(new Intent(this, ChatActivity.class));
+        // send user to dashboard
+        startActivity(new Intent(this, DashboardActivity.class));
     }
 }
