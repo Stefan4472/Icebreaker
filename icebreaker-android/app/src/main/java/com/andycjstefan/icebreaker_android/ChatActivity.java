@@ -1,6 +1,7 @@
 package com.andycjstefan.icebreaker_android;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,6 +20,10 @@ public class ChatActivity extends Activity {
     // keys used to send "extras" to ChatActivity via the calling Inent
     public static final String EXTRA_USER_ID = "EXTRA_USER_ID";
     public static final String EXTRA_PARTNER_ID = "EXTRA_PARTNER_ID";
+
+    public static final Bitmap sender_thumbnail = null;
+    public static final Bitmap receiver_thumbnail = null;
+
 
     private static String[] messageObjects = {
             "1,2,Hey how are you?,1515814620397",
