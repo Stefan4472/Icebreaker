@@ -1,30 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/room_name_text"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Room Name"/>
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/room_description_text"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Description"/>
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/room_num_users_text"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Num Users"/>
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/room_password_text"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password"/>
+        android:layout_height="wrap_content"/>
 </LinearLayout>
