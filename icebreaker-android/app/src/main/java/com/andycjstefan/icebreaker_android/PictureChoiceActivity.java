@@ -1,7 +1,9 @@
 package com.andycjstefan.icebreaker_android;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -78,6 +80,9 @@ public class PictureChoiceActivity extends Activity {
 
     // called when user clicks button to submit Name
     public void onDoneWithPicture(View view) {
+        // save user id TODO: REQUEST SERVER FOR NEW USER ID
+        SharedPreferences prefs = getSharedPreferences(NewUserActivity.PREFERENCES_FILE_KEY, Context.MODE_PRIVATE);
+        prefs.edit().putInt(NewUserActivity.USER_ID_KEY, 1).apply();
         // send user to dashboard
         startActivity(new Intent(this, DashboardActivity.class));
     }
