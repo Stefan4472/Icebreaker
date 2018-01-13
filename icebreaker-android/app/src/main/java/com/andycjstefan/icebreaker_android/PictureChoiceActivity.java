@@ -35,8 +35,8 @@ public class PictureChoiceActivity extends Activity {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
-            mImageView = 
-            mImageView.setImageBitmap(imageBitmap);
+            //mImageView =
+            //mImageView.setImageBitmap(imageBitmap);
         }
     }
 

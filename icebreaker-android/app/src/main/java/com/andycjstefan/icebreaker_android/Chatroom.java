@@ -49,4 +49,14 @@ public class ChatRoom {
         }
         return new ChatRoom(name, description, password, users);
     }
+
+    @Override
+    public String toString() {
+        String to_str = "";
+        to_str += "Chatroom '" + name + "': " + description + ". Password is " + password + " Logged In Profiles: ";
+        for (Profile p : users) {
+            to_str += p.getFirstName() + ":" + p.getUserId() + ", ";
+        }
+        return to_str;
+    }
 }

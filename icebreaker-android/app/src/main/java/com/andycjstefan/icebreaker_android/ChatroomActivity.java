@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -29,6 +30,7 @@ public class ChatRoomActivity extends Activity {
         users.add(new Profile("Andy"));
         users.add(new Profile("CJ"));
         chat_rooms.add(new ChatRoom("Chat Room", "First Chat Room", "AA23", users));
+        Log.d("ChatRoomActivity", chat_rooms.get(0).toString());
         ChatRoomAdapter chatRoomAdapter = new ChatRoomAdapter(this, chat_rooms, user_id);
         roomRecyclerView.setAdapter(chatRoomAdapter);
     }

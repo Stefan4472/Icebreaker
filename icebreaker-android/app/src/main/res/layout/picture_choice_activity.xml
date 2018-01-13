@@ -19,7 +19,7 @@
         android:id="@+id/profile_picture"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/blank-profile" />
+        android:src="@drawable/blank_profile" />
 
     <Button
         android:id="@+id/take_picture_button"
