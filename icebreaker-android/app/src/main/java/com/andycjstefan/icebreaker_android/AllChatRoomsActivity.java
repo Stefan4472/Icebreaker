@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -28,26 +27,34 @@ public class AllChatRoomsActivity extends Activity implements ChatRoomAdapter.On
 
         int user_id = 1;
 
-        List<ChatRoom> chat_rooms = new LinkedList<>();
-        List<Profile> users = new LinkedList<>();
-        users.add(new Profile("Stefan"));
-        users.add(new Profile("Andy"));
-        users.add(new Profile("CJ"));
-        chat_rooms.add(new ChatRoom("Chat Room", "First Chat Room", "AA23", users));
-        Log.d("AllChatRoomsActivity", chat_rooms.get(0).toString());
-        ChatRoomAdapter chatRoomAdapter = new ChatRoomAdapter(this, chat_rooms, user_id);
+        ChatRoomAdapter chatRoomAdapter = new ChatRoomAdapter(this, loadChatRoomsForUser(user_id), user_id);
         // set this class to receive events
         chatRoomAdapter.setListener(this);
         roomRecyclerView.setAdapter(chatRoomAdapter);
     }
 
-    // called when the user selects a chat room. Start a ChatRoomActivity with the chat room's id.
+    // called when the user selects a chat room. Start a ChatRoomActivity with the chat room's password.
     @Override
     public void onChatRoomClicked(ChatRoom selectedChatRoom) {
         Intent room_intent = new Intent(this, ChatRoomActivity.class);
-        room_intent.putExtra(ChatRoomActivity.EXTRA_ROOM_ID, selectedChatRoom.getPassword());
-//        chat_intent.putExtra(ChatActivity.EXTRA_USER_ID, 1); // TODO: PUT CURRENT USER ID
-//        chat_intent.putExtra(ChatActivity.EXTRA_PARTNER_ID, 2); // TODO: PUT PARTNER ID
+        room_intent.putExtra(ChatRoomActivity.EXTRA_ROOM_PASSWORD, selectedChatRoom.getPassword());
         startActivity(room_intent);
+    }
+
+    private static List<ChatRoom> loadChatRoomsForUser(int userId) {
+        List<ChatRoom> chat_rooms = new LinkedList<>();
+        List<Profile> users = new LinkedList<>();
+        users.add(new Profile("Stefan"));
+        users.add(new Profile("Andy"));
+        users.add(new Profile("CJ"));
+        chat_rooms.add(new ChatRoom("The Hack Team", "First Chat Room", "AA23", users));
+
+        users.clear();
+        users.add(new Profile("CJ's Mom"));
+        users.add(new Profile("Stefan's Mom"));
+        users.add(new Profile("Andy's Mom"));
+        chat_rooms.add(new ChatRoom("Moms of the Hack Team", "A chat room for the moms", "1218", users));
+
+        return chat_rooms;
     }
 }

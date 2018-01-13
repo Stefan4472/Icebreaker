@@ -15,14 +15,25 @@ import java.util.List;
 
 public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileViewHolder> {
 
+    // interface for listeners, notifies when a profile has been selected to open a chat with
+    public interface OnProfileSelectedListener {
+        void onProfileSelected(Profile profile);
+    }
+
     // profiles logged in to the chat room
     private List<Profile> profiles;
     private Context context;
-    private int chatRoomId;
+    private String password;
+    private OnProfileSelectedListener mListener;
 
-    public ProfileAdapter(Context context, int chatRoomId) { // todo: load profiles given chatroom id
+    public ProfileAdapter(Context context, List<Profile> profiles, String password) {
         this.context = context;
-        this.chatRoomId = chatRoomId;
+        this.profiles = profiles;
+        this.password = password;
+    }
+
+    public void setmListener(OnProfileSelectedListener mListener) {
+        this.mListener = mListener;
     }
 
     @Override
@@ -32,12 +43,24 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ProfileV
     }
 
     @Override
-    public void onBindViewHolder(ProfileViewHolder holder, int position) {
+    public void onBindViewHolder(ProfileViewHolder holder, final int position) {
         Profile p = profiles.get(position);
 
         // bind data from the specified message to the holder layout
         holder.setUserName(p.getFirstName());
         holder.setUserId(p.getUserId());
+
+        // create new onClickListener to send events to the registered OnProfileSelectedListener
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            if (mListener != null) {
+                mListener.onProfileSelected(profiles.get(position));
+            }
+            }
+        };
+        // TODO: ATTACH TO WHOLE VIEW ELEMENT
+        holder.profileNameText.setOnClickListener(listener);
     }
 
     @Override

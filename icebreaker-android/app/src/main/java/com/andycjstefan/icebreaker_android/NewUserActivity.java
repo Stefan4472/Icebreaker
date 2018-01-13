@@ -28,8 +28,6 @@ public class NewUserActivity extends Activity {
     // called when user clicks button to submit Name
     public void onNameSubmitted(View view) {
         // send user to dashboard
-        //startActivity(new Intent(this, PictureChoiceActivity.class));
-        // send user to dashboard
-        startActivity(new Intent(this, DashboardActivity.class));
+        startActivity(new Intent(this, PictureChoiceActivity.class));
     }
 }
