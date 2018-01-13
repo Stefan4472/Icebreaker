@@ -1,21 +1,19 @@
 package com.andycjstefan.icebreaker_android;
 
-import android.graphics.BitmapFactory;
-
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Stores all data on a Chatroom. This includes the name, description, password, and a list of
+ * Stores all data on a ChatRoom. This includes the name, description, password, and a list of
  * logged in user Profiles.
  */
 
-public class Chatroom {
+public class ChatRoom {
 
     private String name, description, password;
     private List<Profile> users = new LinkedList<>();
 
-    public Chatroom(String name, String description, String password, List<Profile> users) {
+    public ChatRoom(String name, String description, String password, List<Profile> users) {
         this.name = name;
         this.description = description;
         this.password = password;
@@ -40,7 +38,7 @@ public class Chatroom {
 
     // parses chatroom from string
     // String is simply comma-separated values TODO: COMMA-SEPARATION DOESN'T ALLOW MESSAGES TO CONTAIN COMMAS
-    public static Chatroom parse(String fromString) {
+    public static ChatRoom parse(String fromString) {
         String[] values = fromString.split(",");
         String name = values[0];
         String description = values[1];
@@ -49,6 +47,6 @@ public class Chatroom {
         for (int i = 3; i < values.length; i++) {
             users.add(new Profile(values[i]));//BitmapFactory.decodeResource(getResources(), R.drawable.my_image));
         }
-        return new Chatroom(name, description, password, users);
+        return new ChatRoom(name, description, password, users);
     }
 }
