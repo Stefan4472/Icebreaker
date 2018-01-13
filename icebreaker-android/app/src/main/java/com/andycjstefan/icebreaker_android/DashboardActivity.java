@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -53,7 +52,7 @@ public class DashboardActivity extends Activity {
 
     // responds to user clicking to see rooms they are in
     public void onViewRoomsClicked(View view) {
-        startActivity(new Intent(this, AllChatRoomsActivity.class));
+        startActivity(new Intent(this, AllChatRoomsFragment.class));
     }
 
     // responds to user clicking to see chats they are in

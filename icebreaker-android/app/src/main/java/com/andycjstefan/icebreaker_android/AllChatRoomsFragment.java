@@ -1,10 +1,14 @@
 package com.andycjstefan.icebreaker_android;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -12,31 +16,42 @@ import java.util.List;
 // Shows all Chatrooms the user has access to. Selecting one will start a new ChatRoomActivity
 // showing the profiles logged in to the room.
 
-public class AllChatRoomsActivity extends Activity implements ChatRoomAdapter.OnChatRoomClickListener {
+public class AllChatRoomsFragment extends Fragment implements ChatRoomAdapter.OnChatRoomClickListener {
 
     // displays scrolling list of chat rooms
     private RecyclerView roomRecyclerView;
+    // user id
+    private int userId = 1;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.all_chatrooms);
+        int userId = 1;
+    }
 
-        roomRecyclerView = findViewById(R.id.rooms_recyclerview);
-        roomRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.all_chatrooms, container, false);
+    }
 
-        int user_id = 1;
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-        ChatRoomAdapter chatRoomAdapter = new ChatRoomAdapter(this, loadChatRoomsForUser(user_id), user_id);
+        View view = getView();
+
+        roomRecyclerView = view.findViewById(R.id.rooms_recyclerview);
+        roomRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        ChatRoomAdapter chatRoomAdapter = new ChatRoomAdapter(getContext(), loadChatRoomsForUser(userId), userId);
         // set this class to receive events
         chatRoomAdapter.setListener(this);
         roomRecyclerView.setAdapter(chatRoomAdapter);
     }
 
-    // called when the user selects a chat room. Start a ChatRoomActivity with the chat room's password.
     @Override
     public void onChatRoomClicked(ChatRoom selectedChatRoom) {
-        Intent room_intent = new Intent(this, ChatRoomActivity.class);
+        Intent room_intent = new Intent(getContext(), ChatRoomActivity.class);
         room_intent.putExtra(ChatRoomActivity.EXTRA_ROOM_PASSWORD, selectedChatRoom.getPassword());
         startActivity(room_intent);
     }
