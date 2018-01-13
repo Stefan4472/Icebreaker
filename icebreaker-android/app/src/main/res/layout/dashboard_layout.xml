@@ -7,7 +7,22 @@
     android:orientation="vertical"
     tools:context="com.andycjstefan.icebreaker_android.DashboardActivity">
 
-    <Button
+    <ViewSwitcher
+        android:id="@+id/dash_view_switcher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View 1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View 2"/>
+    </ViewSwitcher>
+
+    <!--Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Open Chats"
@@ -17,5 +32,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Open Chatrooms"
-        android:onClick="onViewRoomsClicked"/>
+        android:onClick="onViewRoomsClicked"/-->
 </LinearLayout>
