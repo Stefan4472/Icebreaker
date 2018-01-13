@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:onClick="onDoneWithPicture"
-        android:text="@string/next_text" />
+        android:text="Let's Go!" />
 
 
 </LinearLayout>
