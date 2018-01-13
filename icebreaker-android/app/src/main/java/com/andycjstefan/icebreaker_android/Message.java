@@ -8,18 +8,32 @@ package com.andycjstefan.icebreaker_android;
 
 public class Message {
 
-    private int senderId, receiverId;
-    private String text;
-    private long timeStamp;
+    private int senderId = -1, receiverId = -1;
+    private String text = "";
+    private long timeStamp = 0;
+
+
+    public Message() {
+
+    }
+
+    public Message(int senderId, int receiverId, String text, long timeStamp) {
+        this.senderId = senderId;
+        this.receiverId = receiverId;
+        this.text = text;
+        this.timeStamp = timeStamp;
+    }
 
     // parses Message from string
     // String is simply comma-separated values TODO: COMMA-SEPARATION DOESN'T ALLOW MESSAGES TO CONTAIN COMMAS
-    public Message(String fromString) {
+    public static Message parse(String fromString) {
+        Message parsed = new Message();
         String[] values = fromString.split(",");
-        senderId = Integer.parseInt(values[0]);
-        receiverId = Integer.parseInt(values[1]);
-        text = values[2];
-        timeStamp = Long.parseLong(values[3]);
+        parsed.senderId = Integer.parseInt(values[0]);
+        parsed.receiverId = Integer.parseInt(values[1]);
+        parsed.text = values[2];
+        parsed.timeStamp = Long.parseLong(values[3]);
+        return parsed;
     }
 
     public int getSenderId() {

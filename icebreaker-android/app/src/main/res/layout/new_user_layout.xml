@@ -17,7 +17,12 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/to" />
+        android:hint="Enter name" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Find Chats!"
+        android:onClick="onNameSubmitted"/>
 
 </LinearLayout>
