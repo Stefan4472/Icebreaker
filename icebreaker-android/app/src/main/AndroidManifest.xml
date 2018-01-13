@@ -25,7 +25,7 @@
         <activity android:name=".PictureChoiceActivity"/>
         <activity android:name=".DashboardActivity" />
         <activity android:name=".ChatRoomActivity" />
-        <activity android:name=".AllChatRoomsActivity" />
+        <activity android:name=".AllChatRoomsFragment" />
         <activity android:name=".ChatActivity"></activity>
     </application>
 

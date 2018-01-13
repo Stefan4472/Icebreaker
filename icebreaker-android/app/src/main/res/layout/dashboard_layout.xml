@@ -11,10 +11,13 @@
         android:id="@+id/dash_view_switcher"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
+        <fragment
+            android:id="@+id/all_chat_rooms"
+            android:name="com.andycjstefan.icebreaker_android.AllChatRoomsFragment"
+            class="com.andycjstefan.icebreaker_android.AllChatRoomsFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="View 1"/>
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"/>
 
         <TextView
             android:layout_width="match_parent"
