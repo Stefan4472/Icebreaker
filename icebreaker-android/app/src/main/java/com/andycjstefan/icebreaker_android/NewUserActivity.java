@@ -20,7 +20,6 @@ public class NewUserActivity extends Activity {
         //Saves the username
         EditText userNameTextField = (EditText)findViewById(R.id.user_name);
         userNameString = userNameTextField.getText().toString();
-
         //next button(goes to picture upload/taking)
         nextButton = (Button) findViewById(R.id.next_button);
     }

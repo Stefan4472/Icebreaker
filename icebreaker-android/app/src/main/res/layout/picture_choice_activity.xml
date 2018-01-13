@@ -12,38 +12,39 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="Let's get a profile picture!"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:textSize="40dp" />
 
     <ImageView
         android:id="@+id/profile_picture"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/blank-profile" />
+        android:layout_height="172dp"
+        android:gravity="center"
+        android:src="@drawable/blank_profile" />
 
     <Button
         android:id="@+id/take_picture_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/take_picture"
-        android:onClick="onTakePicture"/>
+        android:layout_marginTop="10dp"
+        android:onClick="onTakePicture"
+        android:text="@string/take_picture" />
 
     <Button
         android:id="@+id/upload_picture_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/upload_picture"
-        android:onClick="onUploadPicture"/>
+        android:layout_marginTop="10dp"
+        android:onClick="onUploadPicture"
+        android:text="@string/upload_picture" />
 
     <Button
         android:id="@+id/picture_done_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/next_text"
-        android:onClick="onDoneWithPicture"/>
+        android:layout_marginTop="10dp"
+        android:onClick="onDoneWithPicture"
+        android:text="@string/next_text" />
 
 
 </LinearLayout>
