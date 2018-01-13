@@ -5,7 +5,7 @@ user_info
 user_id integer primary key autoincrement | name text not null
 
 rooms_info
-room_password text primary key check(length(room_password) == 4) | room_name text not null | room_description text |  expire_date datetime not null | dating boolean not null check(dating in (0,1))
+room_password integer primary key autoincrement | room_name text not null | room_description text |  expire_date datetime not null | dating boolean not null check(dating in (0,1))
 
 room_users
 id integer primary key autoincrement | room_password text | user_id integer not null
@@ -18,3 +18,4 @@ user_chats
 chat_id integer primary key autoincrement | user1_id integer not null | user2_id integer not null | constraint user_order check(user1_id<user2_id)
 create unique index user_chat on user_chats(user1_id, user2_id)
 # Make sure that user1<user2 so that we only have to check uniqueness one way
+
