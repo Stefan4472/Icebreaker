@@ -1,12 +1,20 @@
 # Icebreaker
 Android App with Python Backend for real-life chatrooms. HackWPI, January 2018. <br /> <br />
 
+
+
+<img src="https://github.com/Stefan4472/Icebreaker/blob/master/images/new_user.jpg" width="216" height="384" >
+A user-friendly app for getting to know people at events <br />
+
+<img src="https://github.com/Stefan4472/Icebreaker/blob/master/images/profile.jpg" width="216" height="384" >
+Easily upload profile pictures by taking them on site or selecting from a gallery. <br />
+
 <img src="https://github.com/Stefan4472/Icebreaker/blob/master/images/Screenshot_1515901356.png" width="216" height="384" >
-Above: The Dashboard with tabs to either your existing chatrooms or individual chats with people you've connected with. <br />
+The Dashboard with tabs to either your existing chatrooms or individual chats with people you've connected with. <br />
 
 <img src="https://github.com/Stefan4472/Icebreaker/blob/master/images/Screenshot_1515901360.png" width="216" height="384" >
 Above: The individuals you've connected with interface. <br />
 
 <img src="https://github.com/Stefan4472/Icebreaker/blob/master/images/Screenshot_1515901375.png" width="216" height="384" >
-Above: The chat interface. <br />
+Above: The chat interface for personal messaging. <br />
 
