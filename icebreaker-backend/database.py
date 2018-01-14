@@ -11,6 +11,10 @@ import sqlite3 as sql
 from datetime import datetime
 
 database_name = "server_info.db"
+def get_now():
+    return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+
 def log_mistake(error):
     """If something goes wrong, ignore it (don't crash) and save the error"""
     with open('/home/partrico/Icebreaker/icebreaker-backend/ignores.log', 'a') as f:
@@ -31,7 +35,8 @@ class Database:
             name text not null
         )""")
         self.c.execute("""CREATE TABLE IF NOT EXISTS rooms_info(
-            room_id integer primary key autoincrement, room_name text not null,
+            room_id integer primary key autoincrement,
+            room_name text not null,
             room_description text,
             expire_date datetime not null,
             dating boolean not null check(dating in (0,1))
@@ -53,11 +58,18 @@ class Database:
             room_id integer primary key,
             room_passphrase text not null
             )""")
+        self.c.execute("""CREATE TABLE IF NOT EXISTS messages(
+            message_id integer primary key autoincrement,
+            sender_id integer not null,
+            recipient_id integer not null,
+            content text not null,
+            timestamp datetime not null
+        )""")
         self.conn.commit()
 
     def _generate_passphrases(self):
-        passphrase = lambda n: ''.join(chr(n//(26**i)%26+97) for i in range(4))
-        l = [passphrase(i) for i in range(26**4)]
+        gen_passphrase = lambda n: ''.join(chr(n//(26**i)%26+97) for i in range(4))
+        l = [gen_passphrase(i) for i in range(26**4)]
         from random import shuffle
         shuffle(l)
         self.c.executemany("INSERT INTO passphrases(room_id, room_passphrase) VALUES(?, ?)", (zip(range(26**4), l)))
@@ -80,6 +92,19 @@ class Database:
             return user_id
         except sql.IntegrityError as e:
             # insert failed (probably user_name is null)
+            log_mistake(e)
+            return None
+
+    def create_room(self, creator, room_name, room_description=None, expire_date=None, dating=None):
+        expire_date = expire_date or get_now()
+        dating = int(bool(dating))
+        try:
+            self.c.execute("INSERT INTO rooms_info(room_name, room_description, expire_date, dating) values(?, ?, ?, ?)", (room_name, room_description, expire_date, dating))
+            room_id = self.c.lastrowid
+            self.c.execute("INSERT INTO room_users(room_id, user_id) values(?,?)", (room_id, creator))
+            self.conn.commit()
+            return room_id
+        except sql.IntegrityError as e:
             log_mistake(e)
             return None
 
@@ -133,9 +158,30 @@ class Database:
             INNER JOIN user_info ON room_users.user_id = user_info.user_id
             INNER JOIN passphrases ON room_users.room_id = passphrases.room_id
             WHERE room_passphrase = ?
-        """, (room_passphrase,))
-        return [(user_id, user_name, self.get_photo(user_id))
-                for (user_id, user_name) in self.c if user_id != request_user_id]
+        """, (room_passphrase.lower(),))
+        return [{k:v for (k,v) in
+                 zip(
+                     ('user_id', 'user_name', 'user_photo'),
+                     (user_id, user_name, self.get_photo(user_id))
+                 )
+                } for (user_id, user_name) in self.c if user_id != request_user_id]
+
+    def new_message(self, sender_id, recipient_id, content):
+        user1_id, user2_id = sorted((sender_id, recipient_id))
+        self.c.execute("""INSERT INTO messages(sender_id, recipient_id, content, timestamp)""".format(sender_id, recipient_id, content, get_now()))
+        try:
+            self.c.execute("""INSERT INTO user_chats(user1_id, user2_id) values(?,?)""", (user1_id, user2_id))
+            chat_id = self.c.lastrowid
+        except sql.IntegrityError:
+            # Users already have chat
+            self.c.execute("""SELECT chat_id FROM user_chats WHERE user1_id = ? AND user2_id = ?""", (user1_id, user2_id))
+            chat_id = self.c.fetchone()
+        self.conn.commit()
+        return chat_id
+
+    def get_chats(self, user_id):
+        return list(self.c.execute("""SELECT user1_id FROM user_chats WHERE user2_id = ?""", user_id).fetchall()) +\
+               list(self.c.execute("""SELECT user2_id FROM user_chats WHERE user1_id = ?""", user_id).fetchall())
 
     # def block_user(self, sender, recipient):
     #     pass
