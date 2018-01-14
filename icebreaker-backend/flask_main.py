@@ -76,6 +76,7 @@ def view_chat():
     user1_id = group_get('sender', 'sender_id', 'user1_id')
     user2_id = group_get('recipient', 'recipient_id', 'user2_id')
     if all((user1_id, user2_id)):
+        return jsonify(DB.view_chat(user1_id, user2_id))
 
 
 # @app.route('/block_user/', methods=['GET', 'POST'])
