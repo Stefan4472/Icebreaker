@@ -29,7 +29,7 @@ def add_new_user():
     name = group_get('name', 'username', 'user_name')
     photo = group_get('photo')
     if all((name, photo)):
-        return str(DB.create_user(name, photo))
+        return jsonify(DB.create_user(name, photo))
     else:
         return "-1"
 
