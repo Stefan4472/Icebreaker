@@ -73,7 +73,7 @@ class Database:
             self.c.execute("""INSERT INTO user_info(name) values(?)""", (user_name,))
             user_id = self.c.lastrowid
             # Also add photo
-            with open('/home/partrico/Icebreaker/icebreaker-backend/user_photos/{0}'.format(user_id), 'wb') as f:
+            with open('/home/partrico/Icebreaker/icebreaker-backend/user_photos/{0}'.format(user_id), 'w') as f:
                 # Photo is baseencoded, we don't need to decode it though
                 f.write(photo)
             self.conn.commit()
@@ -120,7 +120,7 @@ class Database:
         """
         Returns the base64 encoding of a user's profile image
         """
-        with open('/home/partrico/Icebreaker/icebreaker-backend/user_photos/{0}.png'.format(user_id), 'rb') as f:
+        with open('/home/partrico/Icebreaker/icebreaker-backend/user_photos/{0}.png'.format(user_id), 'r') as f:
             read_data = f.read()
         return read_data
 
