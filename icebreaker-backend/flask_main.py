@@ -29,10 +29,9 @@ def add_new_user():
     name = group_get('name', 'username', 'user_name')
     photo = group_get('photo')
     if all((name, photo)):
-        DB.create_user(name, photo)
-        return "Success"
+        return str(DB.create_user(name, photo))
     else:
-        return "Failure"
+        return "-1"
 
 @app.route('/rooms_by_user/<userid>')
 def get_rooms(userid):
