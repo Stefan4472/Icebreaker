@@ -1,0 +1,1 @@
+These images are taken directly from the android studio emulator - Nexus_5X_API_25.
