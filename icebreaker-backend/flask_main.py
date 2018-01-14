@@ -90,6 +90,16 @@ def view_chat():
     else:
         return "Failure"
 
+@app.route('/join_room', methods=['GET', 'POST'])
+def join_chat():
+    group_get = _group_get(request.values)
+    user_id = group_get('sender', 'user', 'username', 'user_name')
+    room_passphrase = group_get('password', 'passphrase')
+    if all((user_id, room_passphrase)):
+        DB.join_room(user_id, room_passphrase)
+        return "Success"
+    else:
+        return "Failure"
 
 # @app.route('/block_user/', methods=['GET', 'POST'])
 # def block_user(sender, recipient):

@@ -203,6 +203,13 @@ class Database:
         sender_id = ? AND recipient_id = ?""", user2_id, user1_id)]
         return sorted(user1_messages + user2_messages, key=lambda x: x['timestamp'])
 
+    def join_room(self, user_id, room_passphrase):
+        try:
+            self.c.execute("INSERT INTO room_users(room_id, user_id) VALUES(?,?)",
+                           (self.c.execute("SELECT (room_id) FROM passphrases WHERE room_passphrase = ?", room_passphrase).fetchone(), user_id))
+        except sql.IntegrityError as e:
+            log_mistake(e)
+
 if __name__ == '__main__':
     db = Database()
     print(__file__)
