@@ -40,7 +40,6 @@ public class ChatRoomActivity extends Activity implements ProfileAdapter.OnProfi
         }
 
         roomNameText = findViewById(R.id.chatroom_name);
-        roomNameText.setText("Chat Room Name Goes Here");
 
         profilesView = findViewById(R.id.chatroom_profiles_view);
         profilesView.setLayoutManager(new LinearLayoutManager(this));

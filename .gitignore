@@ -1,8 +1,8 @@
 
 icebreaker-android/app/src/main/java/com/andycjstefan/icebreaker_android/PictureChoiceActivity.java
-icebreaker-android/app/src/main/res/layout/picture_choice_activity.xml
-icebreaker-android/app/build/
-icebreaker-android/gradle/
-icebreaker-android/.gradle/
-icebreaker-android/build/
-.idea/
+**/icebreaker-android/app/src/main/res/layout/picture_choice_activity.xml
+**/icebreaker-android/app/build/
+**/icebreaker-android/gradle/
+**/icebreaker-android/.gradle/
+**/icebreaker-android/build/
+**/.idea/
