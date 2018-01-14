@@ -20,7 +20,7 @@ def _group_get(dct):
 def hello_world():
     return 'Hello from Flask!'
 
-@app.route('/add_user/', methods=['GET','POST'])
+@app.route('/add_user', methods=['GET','POST'])
 def add_new_user():
     """
     Need name and new photo to create new user
@@ -35,7 +35,7 @@ def add_new_user():
 def get_rooms(userid):
     return jsonify(DB.available_rooms(userid))
 
-@app.route('/add_room/', methods=['GET', 'POST'])
+@app.route('/add_room', methods=['GET', 'POST'])
 def add_new_room():
     """
     Need name and room name. Description, expire date, and dating optional.
@@ -49,7 +49,7 @@ def add_new_room():
         dating = group_get('dating')
         DB.create_room(creator, room_name, description, expire_date, dating)
 
-@app.route('/users_by_room/', methods=['GET', 'POST'])
+@app.route('/users_by_room', methods=['GET', 'POST'])
 def get_users():
     group_get = _group_get(request.values)
     room_passphrase = group_get('passphrase', 'room_passphrase', 'password')
@@ -57,15 +57,31 @@ def get_users():
         creator = group_get('creator', 'username', 'user_name')
         DB.create_room(room_passphrase, creator)
 
-@app.route('/new_message/', methods=['GET', 'POST'])
+@app.route('/new_message', methods=['GET', 'POST'])
 def create_message():
     group_get = _group_get(request.values)
-    sender_id = group_get('sender', 'sender_id')
-    recipient_id = group_get('recipient', 'recipient_id')
+    sender_id = group_get('sender', 'sender_id', 'user1_id')
+    recipient_id = group_get('recipient', 'recipient_id', 'user2_id')
     content = group_get('content', 'message')
-    return DB.new_message(sender_id, recipient_id, content)
+    if all((sender_id, recipient_id, content)):
+        return DB.new_message(sender_id, recipient_id, content)
 
 @app.route('/chats_by_user/<userid>')
 def get_chats(userid):
     return jsonify(DB.get_chats(userid))
 
+@app.route('/view_chat', methods=['GET', 'POST'])
+def view_chat():
+    group_get = _group_get(request.values)
+    user1_id = group_get('sender', 'sender_id', 'user1_id')
+    user2_id = group_get('recipient', 'recipient_id', 'user2_id')
+    if all((user1_id, user2_id)):
+
+
+# @app.route('/block_user/', methods=['GET', 'POST'])
+# def block_user(sender, recipient):
+#     group_get = _group_get(request.values)
+#     sender = group_get('user1_id', 'sender')
+#     recipient = group_get('user2_id', 'recipient')
+#     if all((sender, recipient)):
+#         return DB.block_user(sender, recipient)

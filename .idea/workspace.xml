@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="73f75a70-eddd-4994-a4d6-7c894f2049bb" name="Default" comment="Added database along with schema for serverside info&#10;   Includes users, rooms, room_info,">
+    <list default="true" id="73f75a70-eddd-4994-a4d6-7c894f2049bb" name="Default" comment="Added message capability between">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icebreaker-backend/database.py" afterPath="$PROJECT_DIR$/icebreaker-backend/database.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icebreaker-backend/flask_main.py" afterPath="$PROJECT_DIR$/icebreaker-backend/flask_main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Icebreaker.iws" />
@@ -23,11 +25,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="database_documentation.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/icebreaker-backend/database_documentation.txt">
+      <file leaf-file-name="database.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/icebreaker-backend/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25104603">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="203" column="26" selection-start-line="203" selection-start-column="26" selection-end-line="203" selection-end-column="26" />
+              <folding>
+                <element signature="e#401#422#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="flask_main.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/icebreaker-backend/flask_main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -47,9 +61,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/icebreaker-backend/database_documentation.txt" />
         <option value="$PROJECT_DIR$/icebreaker-backend/database.py" />
         <option value="$PROJECT_DIR$/icebreaker-backend/flask_main.py" />
-        <option value="$PROJECT_DIR$/icebreaker-backend/database_documentation.txt" />
       </list>
     </option>
   </component>
@@ -84,7 +98,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -120,6 +133,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
@@ -129,184 +143,7 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gitignore</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.gradle/4.1/fileHashes/fileHashes.bin</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.gradle/4.1/fileHashes/fileHashes.lock</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.gradle/4.1/fileHashes/resourceHashesCache.bin</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.gradle/4.1/javaCompile/classAnalysis.bin</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.gradle/4.1/javaCompile/jarAnalysis.bin</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.gradle/4.1/javaCompile/javaCompile.lock</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.gradle/4.1/javaCompile/taskHistory.bin</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.gradle/4.1/javaCompile/taskJars.bin</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.gradle/4.1/taskHistory/fileSnapshots.bin</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.gradle/4.1/taskHistory/taskHistory.bin</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.gradle/4.1/taskHistory/taskHistory.lock</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/app/app.iml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/app/build.gradle</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/app/src/main/AndroidManifest.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/app/src/main/java/com/andycjstefan/icebreaker_android/DashboardActivity.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/app/src/main/java/com/andycjstefan/icebreaker_android/NewUserActivity.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/app/src/main/res/layout/dashboard_layout.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/app/src/main/res/layout/new_user_layout.xml</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.idea/libraries/android_arch_core_common_1_0_0_jar.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.idea/libraries/android_arch_lifecycle_common_1_0_0_jar.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.idea/libraries/android_arch_lifecycle_runtime_1_0_0.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.idea/libraries/com_android_support_recyclerview_v7_26_1_0.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.idea/libraries/com_android_support_support_annotations_26_1_0_jar.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.idea/libraries/com_android_support_support_compat_26_1_0.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.idea/libraries/com_android_support_support_core_ui_26_1_0.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.idea/libraries/com_android_volley_volley_1_1_0.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-15-47-32-881.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-15-47-32-881.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-01-39-310.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-01-39-310.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-02-34-395.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-02-34-395.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-05-24-865.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-05-24-865.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-05-51-219.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-05-51-219.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-17-44-878.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-17-44-878.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-17-50-082.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-17-50-082.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-19-20-750.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-19-20-750.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-19-38-947.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-19-38-947.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-20-26-414.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-20-26-414.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-21-23-627.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-21-23-627.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-21-45-333.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-21-45-333.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-22-43-572.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-22-43-572.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-26-07-856.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-26-07-856.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-27-16-758.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-27-16-758.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-28-02-710.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-28-02-710.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-28-19-421.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-28-19-421.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-31-06-137.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-31-06-137.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-32-47-084.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-32-47-084.rawproto</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-37-41-603.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/build/android-profile/profile-2018-01-13-16-37-41-603.rawproto</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/icebreaker-android/.gitignore</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -320,7 +157,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.flask_main">
+  <component name="RunManager" selected="Python.database">
     <configuration default="false" name="database" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -483,8 +320,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.flask_main" />
-        <item index="1" class="java.lang.String" itemvalue="Python.database" />
+        <item index="0" class="java.lang.String" itemvalue="Python.database" />
+        <item index="1" class="java.lang.String" itemvalue="Python.flask_main" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
@@ -535,25 +372,34 @@
       <option name="project" value="LOCAL" />
       <updated>1515885369717</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Flask setup to work with querying the database">
+      <created>1515885446962</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1515885446962</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added message capability, and the ability to add messages through the web API">
+      <created>1515889854056</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1515889854056</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24947146" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24947146" sideWeight="0.48418972" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980132" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32980132" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980132" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980132" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24947146" sideWeight="0.51581025" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -561,10 +407,13 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980132" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -585,7 +434,9 @@
     <MESSAGE value="Added database along with schema for serverside info&#10;   Includes users, rooms, room_info, and chats for users&#10;   database.py interfaces here to abstract database&#10; Adding a gitignore to stop .idea folders from committing&#10; A very basic flask starting point" />
     <MESSAGE value="The database querying has been fully fleshed out.&#10;Next will work on web capabilities." />
     <MESSAGE value="Added database along with schema for serverside info&#10;   Includes users, rooms, room_info," />
-    <option name="LAST_COMMIT_MESSAGE" value="Added database along with schema for serverside info&#10;   Includes users, rooms, room_info," />
+    <MESSAGE value="Flask setup to work with querying the database" />
+    <MESSAGE value="Added message capability, and the ability to add messages through the web API" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added message capability, and the ability to add messages through the web API" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -595,11 +446,81 @@
     <entry file="file://$PROJECT_DIR$/icebreaker-backend/database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="203" column="26" selection-start-line="203" selection-start-column="26" selection-end-line="203" selection-end-column="26" />
+          <folding>
+            <element signature="e#401#422#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icebreaker-backend/flask_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icebreaker-backend/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="203" column="26" selection-start-line="203" selection-start-column="26" selection-end-line="203" selection-end-column="26" />
+          <folding>
+            <element signature="e#401#422#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icebreaker-backend/flask_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icebreaker-backend/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="183" column="14" selection-start-line="183" selection-start-column="14" selection-end-line="183" selection-end-column="14" />
+          <folding>
+            <element signature="e#401#422#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icebreaker-backend/flask_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icebreaker-backend/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#401#422#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icebreaker-backend/flask_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icebreaker-backend/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
           <folding>
             <element signature="e#401#422#0" expanded="true" />
-            <marker date="1515885286000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1515885286000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -640,31 +561,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/icebreaker-backend/database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
-          <folding>
-            <element signature="e#401#422#0" expanded="true" />
-            <marker date="1515885286000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1515885286000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/icebreaker-backend/flask_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -672,14 +572,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/icebreaker-backend/database_documentation.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25104603">
+        <state vertical-scroll-proportion="0.16506189">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icebreaker-backend/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="203" column="26" selection-start-line="203" selection-start-column="26" selection-end-line="203" selection-end-column="26" />
+          <folding>
+            <element signature="e#401#422#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/icebreaker-backend/flask_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
           <folding />
         </state>
       </provider>

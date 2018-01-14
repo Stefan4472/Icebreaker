@@ -183,6 +183,26 @@ class Database:
         return list(self.c.execute("""SELECT user1_id FROM user_chats WHERE user2_id = ?""", user_id).fetchall()) +\
                list(self.c.execute("""SELECT user2_id FROM user_chats WHERE user1_id = ?""", user_id).fetchall())
 
+    # def block_user(self, sender, recipient):
+    #     pass
+
+    def view_chat(self, user1_id, user2_id):
+        user1_messages = [{
+            'sender': user1_id,
+            'recipient': user2_id,
+            'message': message,
+            'timestamp': timestamp,
+        } for (message, timestamp) in self.c.execute("""SELECT (content, timestamp) from messages WHERE
+        sender_id = ? AND recipient_id = ?""", user1_id, user2_id)]
+        user2_messages = [{
+                              'sender': user2_id,
+                              'recipient': user1_id,
+                              'message': message,
+                              'timestamp': timestamp,
+                          } for (message, timestamp) in self.c.execute("""SELECT (content, timestamp) from messages WHERE
+        sender_id = ? AND recipient_id = ?""", user2_id, user1_id)]
+        return sorted(user1_messages + user2_messages, key=lambda x: x['timestamp'])
+
 if __name__ == '__main__':
     db = Database()
     db._generate_passphrases()
