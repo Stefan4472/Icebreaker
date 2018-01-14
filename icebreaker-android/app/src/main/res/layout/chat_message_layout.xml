@@ -11,4 +11,5 @@
         android:textSize="20dp"
         android:layout_margin="5dp"
         android:text="Blank Message"/>
+
 </RelativeLayout>
