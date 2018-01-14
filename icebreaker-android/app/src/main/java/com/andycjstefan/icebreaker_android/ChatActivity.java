@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import com.android.volley.RequestQueue;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,7 +26,6 @@ public class ChatActivity extends Activity {
     public static final Bitmap sender_thumbnail = null;
     public static final Bitmap receiver_thumbnail = null;
 
-
     private static String[] messageObjects = {
             "1,2,Hey how are you?,1515814620397",
             "2,1,Fine how are you?,1515814648408",
@@ -38,6 +39,7 @@ public class ChatActivity extends Activity {
     private ChatLogAdapter chatLogAdapter;
     // box where user enters message
     private EditText messageBox;
+    private RequestQueue queue;
 
     // list of message objects in the chat
     private List<Message> messages = new LinkedList<>();

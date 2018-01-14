@@ -89,6 +89,7 @@ public class DashboardActivity extends Activity {
         RequestQueue queue = Volley.newRequestQueue(this);
 
         String url = NetworkUtil.getNewUserURL(name, photoBase64);
+        Log.d("Dashboard", "URL is " + url);
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {

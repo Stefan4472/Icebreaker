@@ -6,3 +6,6 @@ icebreaker-android/app/src/main/java/com/andycjstefan/icebreaker_android/Picture
 **/icebreaker-android/.gradle/
 **/icebreaker-android/build/
 **/.idea/
+*.bin
+*.bin
+*.lock

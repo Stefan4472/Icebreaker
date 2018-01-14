@@ -2,13 +2,23 @@ package com.andycjstefan.icebreaker_android;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -22,11 +32,15 @@ public class AllChatRoomsFragment extends Fragment implements ChatRoomAdapter.On
     private RecyclerView roomRecyclerView;
     // user id
     private int userId = 1;
+    private RequestQueue queue;
+    private ChatRoomAdapter chatRoomAdapter;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         int userId = 1;
+        queue = Volley.newRequestQueue(getContext());
     }
 
     @Override
@@ -43,7 +57,7 @@ public class AllChatRoomsFragment extends Fragment implements ChatRoomAdapter.On
         roomRecyclerView = view.findViewById(R.id.rooms_recyclerview);
         roomRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        ChatRoomAdapter chatRoomAdapter = new ChatRoomAdapter(getContext(), loadChatRoomsForUser(userId), userId);
+        chatRoomAdapter = new ChatRoomAdapter(getContext(), loadChatRoomsForUser(userId), userId);
         // set this class to receive events
         chatRoomAdapter.setListener(this);
         roomRecyclerView.setAdapter(chatRoomAdapter);
@@ -56,7 +70,25 @@ public class AllChatRoomsFragment extends Fragment implements ChatRoomAdapter.On
         startActivity(room_intent);
     }
 
-    private static List<ChatRoom> loadChatRoomsForUser(int userId) {
+    private List<ChatRoom> loadChatRoomsForUser(int userId) {
+        String url = NetworkUtil.getRoomsByUser(userId);
+
+        Log.d("ChatRooms", "Creating Request " + url);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("AllChatrooms", "received response " + response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("AllChatrooms", "received bad response " + error.getMessage());
+            }
+        });
+        Log.d("ChatRooms", "Finished request");
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
         List<ChatRoom> chat_rooms = new LinkedList<>();
         List<Profile> users = new LinkedList<>();
         users.add(new Profile("Stefan"));
