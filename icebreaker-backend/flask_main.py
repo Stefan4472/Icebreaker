@@ -72,9 +72,9 @@ def create_message():
     recipient_id = group_get('recipient', 'recipient_id', 'user2_id')
     content = group_get('content', 'message')
     if all((sender_id, recipient_id, content)):
-        return DB.new_message(sender_id, recipient_id, content)
+        return str(DB.new_message(sender_id, recipient_id, content))
     else:
-        return "Failure"
+        return "-1"
 
 @app.route('/chats_by_user/<userid>')
 def get_chats(userid):
