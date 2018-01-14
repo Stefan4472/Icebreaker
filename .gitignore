@@ -6,6 +6,10 @@ icebreaker-android/app/src/main/java/com/andycjstefan/icebreaker_android/Picture
 **/icebreaker-android/.gradle/
 **/icebreaker-android/build/
 **/.idea/
+<<<<<<< HEAD
 *.bin
 *.bin
 *.lock
+=======
+**/__pycache__
+>>>>>>> 96e50556d383e09d4047840993b4895b9bba23c6
