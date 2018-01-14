@@ -13,7 +13,7 @@ from datetime import datetime
 database_name = "server_info.db"
 def log_mistake(error):
     """If something goes wrong, ignore it (don't crash) and save the error"""
-    with open('ignores.log', 'a') as f:
+    with open('/home/partrico/Icebreaker/icebreaker-backend/ignores.log', 'a') as f:
         f.write("Had conflict at {time}.\nError was {error}\n".format(time=datetime.now().strftime('%Y-%m-%d %H:%M:%S'), error=str(error)))
 
 class Database:
@@ -73,7 +73,7 @@ class Database:
             self.c.execute("""INSERT INTO user_info(name) values(?)""", (user_name,))
             user_id = self.c.lastrowid
             # Also add photo
-            with open('user_photos/{0}'.format(user_id), 'wb') as f:
+            with open('/home/partrico/Icebreaker/icebreaker-backend/user_photos/{0}'.format(user_id), 'wb') as f:
                 # Photo is baseencoded, we don't need to decode it though
                 f.write(photo)
             self.conn.commit()
@@ -120,7 +120,7 @@ class Database:
         """
         Returns the base64 encoding of a user's profile image
         """
-        with open('user_photos/{0}.png'.format(user_id), 'rb') as f:
+        with open('/home/partrico/Icebreaker/icebreaker-backend/user_photos/{0}.png'.format(user_id), 'rb') as f:
             read_data = f.read()
         return read_data
 
@@ -159,3 +159,4 @@ class Database:
 
 if __name__ == '__main__':
     db = Database()
+    print(__file__)
