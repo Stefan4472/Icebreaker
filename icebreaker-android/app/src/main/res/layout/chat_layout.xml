@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,7 +13,7 @@
         android:layout_height="match_parent">
     </android.support.v7.widget.RecyclerView>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -21,8 +22,10 @@
         <!-- Box to type message -->
         <EditText
             android:id="@+id/type_message_field"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:textSize="20dp"
             android:hint="Enter Message Here..."/>
 
         <!-- Button to send message -->
@@ -31,8 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Send"
+            android:layout_alignParentRight="true"
             android:onClick="onMessageSent"/>
-    </LinearLayout>
-
-
+    </RelativeLayout>
 </RelativeLayout>

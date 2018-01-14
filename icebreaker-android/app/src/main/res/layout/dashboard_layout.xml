@@ -34,6 +34,28 @@
         android:layout_height="wrap_content"
         android:text="Open Chats"
         android:onClick="onViewChatsClicked"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Open Chatrooms"
+        android:onClick="onViewRoomsClicked"/-->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/add_rooms_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onAddRooms"
+            android:text="Button" />
+    </RelativeLayout>
+
+    <!--Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Open Chats"
+        android:onClick="onViewChatsClicked"/>
 
     <Button
         android:layout_width="match_parent"
