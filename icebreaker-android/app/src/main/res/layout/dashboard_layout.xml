@@ -10,7 +10,7 @@
     <ViewSwitcher
         android:id="@+id/dash_view_switcher"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <fragment
             android:id="@+id/all_chats"
@@ -47,8 +47,9 @@
             android:id="@+id/add_rooms_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:onClick="onAddRooms"
-            android:text="Button" />
+            android:text="Add Rooms" />
     </RelativeLayout>
 
     <!--Button

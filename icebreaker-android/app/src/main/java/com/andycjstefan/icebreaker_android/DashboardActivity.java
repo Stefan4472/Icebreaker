@@ -122,4 +122,8 @@ public class DashboardActivity extends Activity {
         chat_intent.putExtra(ChatActivity.EXTRA_PARTNER_ID, 2); // TODO: PUT PARTNER ID
         startActivity(chat_intent);
     }
+
+    public void onAddRooms(View view) {
+        startActivity(new Intent(this,AddChatsActivity.class));
+    }
 }
