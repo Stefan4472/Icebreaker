@@ -30,6 +30,9 @@ def add_new_user():
     photo = group_get('photo')
     if all((name, photo)):
         DB.create_user(name, photo)
+        return "Success"
+    else:
+        return "Failure"
 
 @app.route('/rooms_by_user/<userid>')
 def get_rooms(userid):
@@ -48,6 +51,9 @@ def add_new_room():
         expire_date = group_get('expire_date', 'expire')
         dating = group_get('dating')
         DB.create_room(creator, room_name, description, expire_date, dating)
+        return "Success"
+    else:
+        return "Failure"
 
 @app.route('/users_by_room', methods=['GET', 'POST'])
 def get_users():
@@ -56,6 +62,9 @@ def get_users():
     if room_passphrase:
         creator = group_get('creator', 'username', 'user_name')
         DB.create_room(room_passphrase, creator)
+        return "Success"
+    else:
+        return "Failure"
 
 @app.route('/new_message', methods=['GET', 'POST'])
 def create_message():
@@ -65,6 +74,8 @@ def create_message():
     content = group_get('content', 'message')
     if all((sender_id, recipient_id, content)):
         return DB.new_message(sender_id, recipient_id, content)
+    else:
+        return "Failure"
 
 @app.route('/chats_by_user/<userid>')
 def get_chats(userid):
@@ -77,6 +88,8 @@ def view_chat():
     user2_id = group_get('recipient', 'recipient_id', 'user2_id')
     if all((user1_id, user2_id)):
         return jsonify(DB.view_chat(user1_id, user2_id))
+    else:
+        return "Failure"
 
 
 # @app.route('/block_user/', methods=['GET', 'POST'])
