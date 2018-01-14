@@ -21,7 +21,7 @@
         <!-- Box to type message -->
         <EditText
             android:id="@+id/type_message_field"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:hint="Enter Message Here..."/>
