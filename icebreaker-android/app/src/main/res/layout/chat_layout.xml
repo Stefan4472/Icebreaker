@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
     </android.support.v7.widget.RecyclerView>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -21,9 +21,8 @@
         <!-- Box to type message -->
         <EditText
             android:id="@+id/type_message_field"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:hint="Enter Message Here..."/>
 
         <!-- Button to send message -->
@@ -32,10 +31,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Send"
-            android:layout_alignParentRight="true"
             android:onClick="onMessageSent"/>
-    </RelativeLayout>
-
+    </LinearLayout>
 
 
 </RelativeLayout>

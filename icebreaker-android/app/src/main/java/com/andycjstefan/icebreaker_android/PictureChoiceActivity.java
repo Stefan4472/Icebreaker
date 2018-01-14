@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.provider.MediaStore;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -19,15 +20,30 @@ import java.io.IOException;
 
 public class PictureChoiceActivity extends Activity {
 
+    // key for required extra: user name
+    public static final String USER_NAME_EXTRA = "USER_NAME_EXTRA";
+
     private Button takePictureButton, uploadPictureButton, donePictureButton;
     private ImageView profilePicture;
+    private TextView prompt;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     private static int GET_FROM_GALLERY = 10;
+    private String userName;
+    private Bitmap userPhoto = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.picture_choice_activity);
+
+        // throw exception if no name given
+        if (!getIntent().hasExtra(USER_NAME_EXTRA)) {
+            throw new IllegalArgumentException("PictureChoiceActivity Requires USER NAME EXTRA");
+        }
+        userName = getIntent().getStringExtra(USER_NAME_EXTRA);
+
+        prompt = findViewById(R.id.profile_pic_prompt);
+        prompt.setText(String.format("Hi, %s! We Need A Profile Picture", userName));
 
         profilePicture = (ImageView) findViewById(R.id.profile_picture) ;
 
@@ -50,8 +66,8 @@ public class PictureChoiceActivity extends Activity {
 
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            profilePicture.setImageBitmap(imageBitmap);
+            userPhoto = (Bitmap) extras.get("data");
+            profilePicture.setImageBitmap(userPhoto);
         }
 
         else if(requestCode==GET_FROM_GALLERY && resultCode == RESULT_OK) {
@@ -71,8 +87,6 @@ public class PictureChoiceActivity extends Activity {
         }
     }
 
-
-
     public void onUploadPicture(View view) {
         // send user to uplooad a picture (Gallery)
         startActivityForResult(new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI), GET_FROM_GALLERY);
@@ -80,11 +94,16 @@ public class PictureChoiceActivity extends Activity {
 
     // called when user clicks button to submit Name
     public void onDoneWithPicture(View view) {
-        // save user id TODO: REQUEST SERVER FOR NEW USER ID
-        SharedPreferences prefs = getSharedPreferences(NewUserActivity.PREFERENCES_FILE_KEY, Context.MODE_PRIVATE);
-        prefs.edit().putInt(NewUserActivity.USER_ID_KEY, 1).apply();
-        // send user to dashboard
-        startActivity(new Intent(this, DashboardActivity.class));
+        // make sure user has added a picture
+        if (userPhoto == null) {
+            findViewById(R.id.error_message_text).setVisibility(View.VISIBLE);
+        } else {
+            // launch dashboard with user name and photo (converted to base64)
+            Intent dashboard_intent = new Intent(this, DashboardActivity.class);
+            dashboard_intent.putExtra(DashboardActivity.USER_NAME_EXTRA, userName);
+            dashboard_intent.putExtra(DashboardActivity.USER_PHOTO_EXTRA, ImageUtil.bmpToBase64(userPhoto));
+            startActivity(dashboard_intent);
+        }
     }
 
 }
