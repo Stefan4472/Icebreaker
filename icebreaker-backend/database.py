@@ -58,6 +58,13 @@ class Database:
             room_id integer primary key,
             room_passphrase text not null
             )""")
+        self.c.execute("""CREATE TABLE IF NOT EXISTS messages(
+            message_id integer primary key autoincrement,
+            sender_id integer not null,
+            recipient_id integer not null,
+            content text not null,
+            timestamp datetime not null
+        )""")
         self.conn.commit()
 
     def _generate_passphrases(self):
@@ -159,5 +166,23 @@ class Database:
                  )
                 } for (user_id, user_name) in self.c if user_id != request_user_id]
 
+    def new_message(self, sender_id, recipient_id, content):
+        user1_id, user2_id = sorted((sender_id, recipient_id))
+        self.c.execute("""INSERT INTO messages(sender_id, recipient_id, content, timestamp)""".format(sender_id, recipient_id, content, get_now()))
+        try:
+            self.c.execute("""INSERT INTO user_chats(user1_id, user2_id) values(?,?)""", (user1_id, user2_id))
+            chat_id = self.c.lastrowid
+        except sql.IntegrityError:
+            # Users already have chat
+            self.c.execute("""SELECT chat_id FROM user_chats WHERE user1_id = ? AND user2_id = ?""", (user1_id, user2_id))
+            chat_id = self.c.fetchone()
+        self.conn.commit()
+        return chat_id
+
+    def get_chats(self, user_id):
+        return list(self.c.execute("""SELECT user1_id FROM user_chats WHERE user2_id = ?""", user_id).fetchall()) +\
+               list(self.c.execute("""SELECT user2_id FROM user_chats WHERE user1_id = ?""", user_id).fetchall())
+
 if __name__ == '__main__':
     db = Database()
+    db._generate_passphrases()

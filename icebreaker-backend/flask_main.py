@@ -57,3 +57,15 @@ def get_users():
         creator = group_get('creator', 'username', 'user_name')
         DB.create_room(room_passphrase, creator)
 
+@app.route('/new_message/', methods=['GET', 'POST'])
+def create_message():
+    group_get = _group_get(request.values)
+    sender_id = group_get('sender', 'sender_id')
+    recipient_id = group_get('recipient', 'recipient_id')
+    content = group_get('content', 'message')
+    return DB.new_message(sender_id, recipient_id, content)
+
+@app.route('/chats_by_user/<userid>')
+def get_chats(userid):
+    return jsonify(DB.get_chats(userid))
+
