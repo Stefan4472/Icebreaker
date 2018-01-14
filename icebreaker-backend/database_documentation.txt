@@ -5,19 +5,17 @@ user_info
 user_id integer primary key autoincrement | name text not null
 
 rooms_info
-room_id integer primary key autoincrement | room_name text not null | room_description text | expire_date datetime not null | dating boolean not null check(dating in (0,1)
+room_password integer primary key autoincrement | room_name text not null | room_description text |  expire_date datetime not null | dating boolean not null check(dating in (0,1))
 
 room_users
-id integer primary key autoincrement | room_id integer | user_id integer
+id integer primary key autoincrement | room_password text | user_id integer not null
 # The room_password 'is' the unique id for the room
+
+create unique index room_user on room_users(room_password, user_id)
+# Fast select, and not have duplicates
 
 user_chats
 chat_id integer primary key autoincrement | user1_id integer not null | user2_id integer not null | constraint user_order check(user1_id<user2_id)
 create unique index user_chat on user_chats(user1_id, user2_id)
 # Make sure that user1<user2 so that we only have to check uniqueness one way
 
-create unique index room_user on room_users(room_password, user_id)
-# Fast select, and not have duplicates
-
-passphrases
-room_id integer primary key | room_passphrase text not null
