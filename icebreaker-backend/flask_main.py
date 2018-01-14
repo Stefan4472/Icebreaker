@@ -11,7 +11,7 @@ def _group_get(dct):
     def group_get(*keys):
         for key in keys:
             val = dct.get(key)
-            if val is None:
+            if val is not None:
                 return val
         return None
     return group_get
